@@ -125,7 +125,7 @@ const activities: Activity[] = [
 
 export default function Activities() {
   return (
-    <div className="christmas-card rounded-3xl p-8 max-w-md w-full">
+    <div className="christmas-card rounded-xl p-4 max-w-md w-full">
       <div className="flex items-center justify-center gap-3 mb-8">
         <span className="text-4xl animate-bounce">📋</span>
         <h2 className="font-festive text-3xl text-yellow-400 glow-text">
@@ -187,7 +187,7 @@ export default function Activities() {
                 {/* Sub-activities list */}
                 {activity.activityList && activity.activityList.length > 0 && (
                   <div className="mt-4 space-y-2">
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid md:grid-cols-2 gap-2">
                       {activity.activityList.map((subActivity) => (
                         <div
                           key={subActivity.id}
@@ -211,13 +211,6 @@ export default function Activities() {
             </div>
           ))}
         </div>
-      </div>
-
-      <div className="mt-8 text-center p-4 rounded-2xl bg-gradient-to-r from-yellow-500/20 to-yellow-600/10 border border-yellow-500/30">
-        <p className="text-yellow-400 font-semibold">
-          🎄 Dress code: Venez comme vous êtes... mais venez habillés quand
-          même! 🎄
-        </p>
       </div>
     </div>
   );

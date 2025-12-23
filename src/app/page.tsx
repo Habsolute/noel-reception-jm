@@ -60,25 +60,61 @@ export default function Home() {
             🎁 La fête la plus magique de l&apos;année! 🎁
           </p>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <div className="christmas-card px-6 py-3 rounded-xl w-full">
-              <span className="text-yellow-400 font-semibold">
-                📅 25 Décembre 2025
-              </span>
+          {/* Fun section */}
+          <section className="my-8 text-center">
+            <div className="christmas-card rounded-3xl p-8 max-w-2xl mx-auto">
+              <h2 className="font-festive text-3xl text-yellow-400 mb-6 glow-text w-max">
+                🎅 Message du Père Noël 🎅
+              </h2>
+              <p className="text-white/80 text-lg italic leading-relaxed">
+                &quot;Ho ho ho! Préparez-vous pour une soirée inoubliable
+                remplie de rires, de compétitions et de moments magiques! Venez
+                comme vous êtes... mais venez habillés quand même! Et surtout,
+                amenez votre esprit festif!&quot;
+              </p>
+              <div className="mt-6 flex justify-center gap-4 text-4xl">
+                <span className="animate-bounce">🦌</span>
+                <span
+                  className="animate-bounce"
+                  style={{ animationDelay: "0.5s" }}
+                >
+                  🦌
+                </span>
+                <span
+                  className="animate-bounce"
+                  style={{ animationDelay: "0.6s" }}
+                >
+                  🦌
+                </span>
+                <span
+                  className="animate-bounce"
+                  style={{ animationDelay: "0.7s" }}
+                >
+                  🦌
+                </span>
+                <span
+                  className="animate-bounce"
+                  style={{ animationDelay: "0.8s" }}
+                >
+                  🛷
+                </span>
+              </div>
             </div>
-            <div className="christmas-card px-6 py-3 rounded-xl w-full">
-              <span className="text-yellow-400 font-semibold">
-                🕕 14h00 - ???
-              </span>
-            </div>
-            <div className="christmas-card px-6 py-3 rounded-xl w-full">
-              <span className="text-yellow-400 font-semibold">
-                📍 SOS Aventures ensuite chez Jean-marc et Tanya!
-              </span>
-            </div>
+          </section>
+
+          <div className="christmas-card max-w-2xl mx-auto px-2 py-3 rounded-xl w-full mt-8 flex flex-wrap justify-center gap-4">
+            <span className="text-yellow-400 font-semibold">
+              📅 25 Décembre 2025
+            </span>
+            <span className="text-yellow-400 font-semibold">
+              🕕 14h00 - ???
+            </span>
+            <span className="text-yellow-400 font-semibold">
+              📍 SOS Aventures ensuite chez Jean-marc et Tanya!
+            </span>
             <Link
               href="https://maps.app.goo.gl/shZkEoDUq2h84dq96"
-              className="bg-white/10 flex justify-between items-center px-6 py-3 rounded-xl w-full text-yellow-400 font-semibold border-white border-2"
+              className="bg-white/10 flex justify-between items-center px-6 py-3 rounded-xl w-full text-yellow-400 font-semibold border-white border-2 hover:bg-white/20 transition-all duration-300"
               target="_blank"
             >
               <div>
@@ -113,56 +149,8 @@ export default function Home() {
           </div>
         </header>
 
-        {/* Fun section */}
-        <section className="my-8 text-center">
-          <div className="christmas-card rounded-3xl p-8 max-w-2xl mx-auto">
-            <h2 className="font-festive text-3xl text-yellow-400 mb-6 glow-text w-max">
-              🎅 Message du Père Noël 🎅
-            </h2>
-            <p className="text-white/80 text-lg italic leading-relaxed">
-              &quot;Ho ho ho! Préparez-vous pour une soirée inoubliable remplie
-              de rires, de compétitions et de moments magiques! Venez comme vous
-              êtes... mais venez habillés quand même! Et surtout, amenez votre
-              esprit festif!&quot;
-            </p>
-            <div className="mt-6 flex justify-center gap-4 text-4xl">
-              <span className="animate-bounce">🦌</span>
-              <span
-                className="animate-bounce"
-                style={{ animationDelay: "0.4s" }}
-              >
-                🦌
-              </span>
-              <span
-                className="animate-bounce"
-                style={{ animationDelay: "0.5s" }}
-              >
-                🦌
-              </span>
-              <span
-                className="animate-bounce"
-                style={{ animationDelay: "0.6s" }}
-              >
-                🦌
-              </span>
-              <span
-                className="animate-bounce"
-                style={{ animationDelay: "0.7s" }}
-              >
-                🦌
-              </span>
-              <span
-                className="animate-bounce"
-                style={{ animationDelay: "0.8s" }}
-              >
-                🛷
-              </span>
-            </div>
-          </div>
-        </section>
-
         {/* Main Content Grid */}
-        <div className="flex flex-col lg:flex-row gap-8 justify-center items-start">
+        <div className="flex flex-col lg:flex-row gap-8 justify-center items-start mt-6">
           <Activities />
           <Leaderboard />
         </div>
