@@ -72,7 +72,7 @@ export default function Home() {
             </div>
             <div className="christmas-card px-6 py-3 rounded-full">
               <span className="text-yellow-400 font-semibold">
-                📍 Chez nous!
+                📍 SOS Aventures - Chez nous!
               </span>
             </div>
           </div>
