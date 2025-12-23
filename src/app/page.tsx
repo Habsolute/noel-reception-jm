@@ -1,6 +1,7 @@
 import Snowfall from "@/components/Snowfall";
 import Leaderboard from "@/components/Leaderboard";
 import Activities from "@/components/Activities";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -34,7 +35,7 @@ export default function Home() {
       {/* Content */}
       <div className="relative z-20 container mx-auto px-4 py-16">
         {/* Header */}
-        <header className="text-center mb-16">
+        <header className="text-center">
           <div className="flex justify-center items-center gap-4 mb-6">
             <span className="text-6xl animate-float">🎄</span>
             <span
@@ -52,7 +53,7 @@ export default function Home() {
           </div>
 
           <h1 className="font-festive text-5xl md:text-7xl text-white mb-4 glow-text">
-            Party de Noël 2024
+            Party de Noël 2025
           </h1>
 
           <p className="text-xl md:text-2xl text-yellow-100/80 font-light">
@@ -60,62 +61,72 @@ export default function Home() {
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <div className="christmas-card px-6 py-3 rounded-full">
+            <div className="christmas-card px-6 py-3 rounded-xl w-full">
               <span className="text-yellow-400 font-semibold">
                 📅 25 Décembre 2025
               </span>
             </div>
-            <div className="christmas-card px-6 py-3 rounded-full">
+            <div className="christmas-card px-6 py-3 rounded-xl w-full">
               <span className="text-yellow-400 font-semibold">
                 🕕 14h00 - ???
               </span>
             </div>
-            <div className="christmas-card px-6 py-3 rounded-full">
+            <div className="christmas-card px-6 py-3 rounded-xl w-full">
               <span className="text-yellow-400 font-semibold">
-                📍 SOS Aventures - Chez nous!
+                📍 SOS Aventures ensuite chez Jean-marc et Tanya!
               </span>
             </div>
+            <Link
+              href="https://maps.app.goo.gl/shZkEoDUq2h84dq96"
+              className="bg-white/10 flex justify-between items-center px-6 py-3 rounded-xl w-full text-yellow-400 font-semibold border-white border-2"
+              target="_blank"
+            >
+              <div>
+                <div className="text-yellow-400 font-semibold">
+                  <span className="text-yellow-400 font-semibold">
+                    SOS Aventures: Location:
+                  </span>
+                </div>
+                <div className="text-yellow-400 font-semibold">
+                  900 Boulevard Grignon Local 01051, Saint-Jérôme, QC J7Y 3S7
+                </div>
+              </div>
+              <div className="text-7xl animate-pulse">›</div>
+            </Link>
+            <Link
+              href="https://maps.app.goo.gl/z4YEURRuofxke4Np8"
+              className="bg-white/10 flex justify-between items-center px-6 py-3 rounded-xl w-full text-yellow-400 font-semibold border-white border-2"
+              target="_blank"
+            >
+              <div>
+                <div className="text-yellow-400 font-semibold">
+                  <span className="text-yellow-400 font-semibold">
+                    Jean-marc et Tanya: Location:
+                  </span>
+                </div>
+                <div className="text-yellow-400 font-semibold">
+                  78 Rue de la Taupiniere, Ste-Sophie, QC
+                </div>
+              </div>
+              <div className="text-7xl animate-pulse">›</div>
+            </Link>
           </div>
         </header>
 
-        {/* Main Content Grid */}
-        <div className="flex flex-col lg:flex-row gap-8 justify-center items-start">
-          <Leaderboard />
-          <Activities />
-        </div>
-
         {/* Fun section */}
-        <section className="mt-16 text-center">
+        <section className="my-8 text-center">
           <div className="christmas-card rounded-3xl p-8 max-w-2xl mx-auto">
-            <h2 className="font-festive text-3xl text-yellow-400 mb-6 glow-text">
+            <h2 className="font-festive text-3xl text-yellow-400 mb-6 glow-text w-max">
               🎅 Message du Père Noël 🎅
             </h2>
             <p className="text-white/80 text-lg italic leading-relaxed">
               &quot;Ho ho ho! Préparez-vous pour une soirée inoubliable remplie
-              de rires, de chansons et de moments magiques! N&apos;oubliez pas
-              votre plus beau chandail de Noël laid... et votre esprit
-              festif!&quot;
+              de rires, de compétitions et de moments magiques! Venez comme vous
+              êtes... mais venez habillés quand même! Et surtout, amenez votre
+              esprit festif!&quot;
             </p>
             <div className="mt-6 flex justify-center gap-4 text-4xl">
               <span className="animate-bounce">🦌</span>
-              <span
-                className="animate-bounce"
-                style={{ animationDelay: "0.1s" }}
-              >
-                🦌
-              </span>
-              <span
-                className="animate-bounce"
-                style={{ animationDelay: "0.2s" }}
-              >
-                🦌
-              </span>
-              <span
-                className="animate-bounce"
-                style={{ animationDelay: "0.3s" }}
-              >
-                🦌
-              </span>
               <span
                 className="animate-bounce"
                 style={{ animationDelay: "0.4s" }}
@@ -150,10 +161,16 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Main Content Grid */}
+        <div className="flex flex-col lg:flex-row gap-8 justify-center items-start">
+          <Activities />
+          <Leaderboard />
+        </div>
+
         {/* Footer */}
         <footer className="mt-16 text-center text-white/40 text-sm">
           <p>Fait avec ❤️ et beaucoup de chocolat chaud 🍫</p>
-          <p className="mt-2">© 2024 - Joyeuses Fêtes! 🎄</p>
+          <p className="mt-2">© 2025 - Joyeuses Fêtes! 🎄</p>
         </footer>
       </div>
     </main>

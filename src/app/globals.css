@@ -1,20 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Quicksand:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --christmas-red: #C41E3A;
-  --christmas-green: #228B22;
-  --christmas-gold: #FFD700;
-  --christmas-cream: #FFFDD0;
-  --christmas-pine: #01796F;
-  --christmas-berry: #8B0000;
+  --christmas-red: #c41e3a;
+  --christmas-green: #228b22;
+  --christmas-gold: #ffd700;
+  --christmas-cream: #fffdd0;
+  --christmas-pine: #01796f;
+  --christmas-berry: #8b0000;
 }
 
 body {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   overflow-x: hidden;
 }
 
@@ -45,16 +45,17 @@ body {
 
 /* Glowing text effect */
 .glow-text {
-  text-shadow: 
-    0 0 10px var(--christmas-gold),
-    0 0 20px var(--christmas-gold),
-    0 0 30px var(--christmas-gold),
-    0 0 40px var(--christmas-red);
+  text-shadow: 0 0 10px var(--christmas-gold), 0 0 20px var(--christmas-gold),
+    0 0 30px var(--christmas-gold), 0 0 40px var(--christmas-red);
 }
 
 /* Card hover effect */
 .christmas-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
@@ -92,9 +93,15 @@ body {
 }
 
 @keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Trophy animation */
@@ -103,8 +110,13 @@ body {
 }
 
 @keyframes trophyBounce {
-  0%, 100% { transform: scale(1) rotate(-5deg); }
-  50% { transform: scale(1.1) rotate(5deg); }
+  0%,
+  100% {
+    transform: scale(1) rotate(-5deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg);
+  }
 }
 
 /* Activity card entrance */
@@ -126,5 +138,5 @@ body {
 
 /* Font family utility */
 .font-festive {
-  font-family: 'Mountains of Christmas', cursive !important;
+  font-family: "Mountains of Christmas", cursive !important;
 }

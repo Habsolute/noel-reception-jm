@@ -18,7 +18,7 @@ export default function Snowfall() {
     const symbols = ["❄", "❅", "❆", "✻", "✼", "❋"];
     const flakes: Snowflake[] = [];
 
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 10; i++) {
       flakes.push({
         id: i,
         left: Math.random() * 100,
