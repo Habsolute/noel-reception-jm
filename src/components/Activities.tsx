@@ -125,7 +125,7 @@ const activities: Activity[] = [
 
 export default function Activities() {
   return (
-    <div className="christmas-card rounded-xl p-4 py-8 max-w-md w-full">
+    <div className="christmas-card rounded-xl p-4 max-w-md w-full">
       <div className="flex items-center justify-center gap-3 mb-8">
         <span className="text-4xl animate-bounce">📋</span>
         <h2 className="font-festive text-3xl text-yellow-400 glow-text">

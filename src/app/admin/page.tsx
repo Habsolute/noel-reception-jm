@@ -282,34 +282,35 @@ export default function AdminPage() {
           {players.map((player, index) => (
             <div
               key={player.id}
-              className="christmas-card rounded-2xl p-4 flex items-center gap-4"
+              className="christmas-card rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-4"
             >
-              {/* Rang & Avatar */}
-              <div className="text-center">
-                <span className="text-2xl">{player.avatar}</span>
-                <p className="text-white/40 text-xs">#{index + 1}</p>
+              <div className="flex flex-row items-center gap-4">
+                {/* Rang & Avatar */}
+                <div className="text-center flex items-center gap-2">
+                  <span className="text-2xl">{player.avatar}</span>
+                  <p className="text-white/40 text-xs">#{index + 1}</p>
+                </div>
+
+                {/* Nom */}
+                <div className="flex-1 min-w-0">
+                  <p className="text-white font-semibold truncate w-max">
+                    {player.name}
+                  </p>
+                </div>
+
+                {/* Bouton éditer */}
+                <button
+                  onClick={() => startEditing(player)}
+                  className="w-10 h-10 bg-blue-600/50 hover:bg-blue-600 rounded-full text-white transition-all shrink-0"
+                  title="Modifier"
+                >
+                  ✏️
+                </button>
               </div>
-
-              {/* Nom */}
-              <div className="flex-1 min-w-0">
-                <p className="text-white font-semibold truncate">
-                  {player.name}
-                </p>
-              </div>
-
-              {/* Bouton éditer */}
-              <button
-                onClick={() => startEditing(player)}
-                className="w-10 h-10 bg-blue-600/50 hover:bg-blue-600 rounded-full text-white transition-all shrink-0"
-                title="Modifier"
-              >
-                ✏️
-              </button>
-
               {/* Contrôles de score */}
               <div className="flex items-center gap-2 shrink-0">
                 <button
-                  onClick={() => updateScore(player.id, -10)}
+                  onClick={() => updateScore(player.id, -1)}
                   className="w-10 h-10 bg-red-600/50 hover:bg-red-600 rounded-full text-white text-xl font-bold transition-all active:scale-90"
                 >
                   -
@@ -325,21 +326,20 @@ export default function AdminPage() {
                 />
 
                 <button
-                  onClick={() => updateScore(player.id, 10)}
+                  onClick={() => updateScore(player.id, 1)}
                   className="w-10 h-10 bg-green-600/50 hover:bg-green-600 rounded-full text-white text-xl font-bold transition-all active:scale-90"
                 >
                   +
                 </button>
+                {/* Supprimer */}
+                <button
+                  onClick={() => deletePlayer(player.id)}
+                  className="w-10 h-10 bg-red-900/50 hover:bg-red-700 rounded-full text-white transition-all shrink-0"
+                  title="Supprimer"
+                >
+                  🗑️
+                </button>
               </div>
-
-              {/* Supprimer */}
-              <button
-                onClick={() => deletePlayer(player.id)}
-                className="w-10 h-10 bg-red-900/50 hover:bg-red-700 rounded-full text-white transition-all shrink-0"
-                title="Supprimer"
-              >
-                🗑️
-              </button>
             </div>
           ))}
         </div>
