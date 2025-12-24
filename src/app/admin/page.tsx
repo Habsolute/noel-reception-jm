@@ -130,7 +130,7 @@ export default function AdminPage() {
     )
       return;
 
-    // Génère un delta -2..+2 pour chaque joueur (et clamp à 0)
+    // Génère un delta -3..+3 pour chaque joueur (et clamp à 0)
     const updates = players.map((p) => {
       const delta = Math.floor(Math.random() * 7) - 3; // -3, -2, -1, 0, +1, +2, +3
       return { id: p.id, score: Math.max(0, p.score + delta) }; // clamp à 0
@@ -147,11 +147,14 @@ export default function AdminPage() {
     );
 
     // Sauvegarde en batch (1 call) via upsert
-    const { error } = await supabase
-      .from("players")
-      .upsert(updates, { onConflict: "id" });
+    const results = await Promise.all(
+      updates.map((u) =>
+        supabase.from("players").update({ score: u.score }).eq("id", u.id)
+      )
+    );
 
-    if (error) console.error("Erreur Grinch:", error);
+    const firstError = results.find((r) => r.error)?.error;
+    if (firstError) console.error("Erreur Grinch:", firstError);
   };
 
   const addPlayer = async () => {
