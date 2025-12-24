@@ -5,22 +5,64 @@ import { supabase, Player } from "@/lib/supabase";
 import Link from "next/link";
 
 const AVATAR_OPTIONS = [
+  // 🎅 Classiques de Noël
   "🎅",
   "🤶",
+  "🧑‍🎄",
   "🦌",
+  "🫎",
   "🧝",
   "🧝‍♂️",
   "⛄",
+  "❄️",
   "🎄",
   "🎁",
-  "❄️",
+  "🎀",
   "🔔",
-  "⭐",
-  "🍪",
+  "🕯️",
   "🧣",
-  "🎿",
-  "☃️",
+
+  // 🍪 Bouffe de Noël (toujours drôle)
+  "🍪",
+  "🍫",
+  "🧁",
+  "🍰",
+  "🍬",
+  "🍭",
+  "🍩",
+
+  // ⭐ Magie / fête
+  "⭐",
   "🌟",
+
+  // 😄 Fun / personnages
+  "🤡",
+  "👻",
+  "🤖",
+  "👽",
+
+  // 🦄 Animaux mignons / random
+  "🐶",
+  "🐱",
+  "🐻",
+  "🐼",
+  "🦊",
+  "🐧",
+  "🐸",
+  "🦄",
+
+  // 🎉 Party / jeux
+  "🥳",
+  "🎈",
+  "🎯",
+  "🎲",
+  "🃏",
+
+  // 💥 Bonus drôles
+  "🔥",
+  "💣",
+  "💥",
+  "💩",
 ];
 
 export default function AdminPage() {
@@ -75,6 +117,41 @@ export default function AdminPage() {
       .from("players")
       .update({ score: Math.max(0, score) })
       .eq("id", id);
+  };
+
+  // ✅ NOUVEAU: Le Grinch (±2 points à tous les joueurs, aléatoirement)
+  const grinchChaos = async () => {
+    if (!players.length) return;
+
+    if (
+      !confirm(
+        "😈🎄 Le Grinch débarque!\nChaque joueur reçoit un changement aléatoire entre -2 et +2. Continuer?"
+      )
+    )
+      return;
+
+    // Génère un delta -2..+2 pour chaque joueur (et clamp à 0)
+    const updates = players.map((p) => {
+      const delta = Math.floor(Math.random() * 7) - 3; // -3, -2, -1, 0, +1, +2, +3
+      return { id: p.id, score: Math.max(0, p.score + delta) }; // clamp à 0
+    });
+
+    // Update UI immédiatement (plus fluide)
+    setPlayers((prev) =>
+      prev
+        .map((p) => {
+          const u = updates.find((x) => x.id === p.id);
+          return u ? { ...p, score: u.score } : p;
+        })
+        .sort((a, b) => b.score - a.score)
+    );
+
+    // Sauvegarde en batch (1 call) via upsert
+    const { error } = await supabase
+      .from("players")
+      .upsert(updates, { onConflict: "id" });
+
+    if (error) console.error("Erreur Grinch:", error);
   };
 
   const addPlayer = async () => {
@@ -164,11 +241,21 @@ export default function AdminPage() {
           >
             ➕ Ajouter joueur
           </button>
+
           <button
             onClick={resetAllScores}
             className="px-4 py-2 bg-red-600/50 hover:bg-red-600 rounded-full text-white transition-all"
           >
             🔄 Reset scores
+          </button>
+
+          {/* ✅ NOUVEAU bouton Grinch */}
+          <button
+            onClick={grinchChaos}
+            className="px-4 py-2 bg-lime-600/70 hover:bg-lime-600 rounded-full text-white font-semibold transition-all"
+            title="Ajoute ou enlève aléatoirement -2 à +2 points à tout le monde"
+          >
+            😈🎄 Grinch (±3 points)
           </button>
         </div>
 
@@ -307,6 +394,7 @@ export default function AdminPage() {
                   ✏️
                 </button>
               </div>
+
               {/* Contrôles de score */}
               <div className="flex items-center gap-2 shrink-0">
                 <button
@@ -331,6 +419,7 @@ export default function AdminPage() {
                 >
                   +
                 </button>
+
                 {/* Supprimer */}
                 <button
                   onClick={() => deletePlayer(player.id)}
