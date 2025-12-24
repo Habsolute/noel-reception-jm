@@ -157,7 +157,10 @@ export default function Home() {
 
         {/* Footer */}
         <footer className="mt-16 text-center text-white/40 text-sm">
-          <p>Fait avec ❤️ et beaucoup de chocolat chaud 🍫</p>
+          <p>
+            Fait avec ❤️ et beaucoup de{" "}
+            <Link href="/admin">chocolat chaud 🍫</Link>
+          </p>
           <p className="mt-2">© 2025 - Joyeuses Fêtes! 🎄</p>
         </footer>
       </div>
